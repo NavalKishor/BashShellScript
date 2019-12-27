@@ -1,0 +1,27 @@
+#!/bin/bash
+#name this file as "pre-commit" and place this file in the .git/hooks/
+#also give execution permission for the file using `chmod +x .git/hooks/pre-commit`
+# verify using `ls -l .git/hooks/pre-commit`
+#-rwxr-xr-x@ 1 naval  603018132  2594 Dec 28 02:38 .git/hooks/pre-commit
+# you are all set.
+lookTodie(){
+    local diffAdded=$1
+    local MATCH=$2
+    echo "$diffAdded" | grep $MATCH && die Blocking commit because string $MATCH detected in patch lookTodie
+}
+MATCH=$(git config --get-all hooks.confirm.match)
+if [ -z "$MATCH" ]; then
+    echo "Git-Confirm: hooks.confirm.match not set, defaulting to 'TODO'"
+    echo 'Add matches with `git config --add hooks.confirm.match "string-to-match"`'
+    MATCH='Thread.currentThread().getStackTrace()'
+    echo 'set your default "string-to-match" in `MATCH` variable above,currently set as MATCH=$MATCH'
+fi
+
+. git-sh-setup  # for die 
+diffAdded=$(git-diff-index -p -M --cached HEAD -- | grep '^+')
+#change the match value and call the `lookTodie "$diffAdded" "$MATCH"`
+# here we are blocking any user to commit Thread.currentThread().getStackTrace() in any way
+lookTodie "$diffAdded" "$MATCH"
+# here we are blocking any user to commit Log. in any way of android Log class
+MATCH='Log.'
+lookTodie "$diffAdded" "$MATCH"
