@@ -17,6 +17,24 @@ that's it and we can prevent accidental commit of ***Naval*** any time.
 `ls -l .git/hooks/pre-commit`<br>
 > -rwxr-xr-x@ 1 naval  603018132  2594 Dec 28 02:38 .git/hooks/pre-commit<br>
 
+
+
+**[gproxy](https://github.com/NavalKishor/BashShellScript/blob/master/gproxy)**
+:gproxy is the easy way to enable or disable the proxy.
+<br>Change the permission of file using this command
+<br>Download this(gproxy) file and copy the file in `$HOME/bin` use the below commands<br>
+> `mkdir $HOME/bin`<br>
+> `cp gproxy $HOME/bin/gproxy`<br>
+> `chmod +x $HOME/bin/gproxy`<br>
+Edit this changes as per your need
+<br> Just edit these keywords
+<br>YourUsername:`UserName`
+<br>YourIPAddress:`127.0.0.1`
+<br>YourPortNo:`8080`
+<br>and from terminal just type<br>
+> `gproxy`  
+<br>and hit the [Enter/return key]
+
 you are all set.
 
 
