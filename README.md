@@ -26,7 +26,10 @@ that's it and we can prevent accidental commit of ***Naval*** any time.
 > `mkdir $HOME/bin`<br>
 > `cp gproxy $HOME/bin/gproxy`<br>
 > `chmod +x $HOME/bin/gproxy`<br>
-Edit this changes as per your need
+or
+> `cp gproxy /usr/local/bin/gproxy`<br>
+> `chmod +x /usr/local/bin/gproxy`<br>
+Edit this changes as per your need but make sure that the `file_size` should same as yours after making all entry 
 <br> Just edit these keywords
 <br>YourUsername:`UserName`
 <br>YourIPAddress:`127.0.0.1`
